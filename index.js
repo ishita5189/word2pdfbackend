@@ -10,7 +10,12 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 
-// settting up the file storage
+// Define a route for the root URL
+app.get("/", (req, res) => {
+    res.send("Welcome to the File Conversion API");
+});
+
+// setting up the file storage
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, "uploads");
